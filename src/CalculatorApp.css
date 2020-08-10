@@ -1,0 +1,333 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
+
+body {
+  background: #005472;
+  color: white;
+  font-family: "Montserrat", sans-serif;
+
+  margin-left: 10px;
+}
+
+.container {
+  margin: 0;
+  padding: 0;
+}
+
+.heading-container {
+  width: 800px;
+  display: grid;
+  grid-template-columns: 400px 1fr;
+  grid-template-rows: auto;
+  margin: 10px;
+}
+
+.header {
+  grid-column: 1 / 2;
+  align-self: start;
+  margin: 0;
+  padding: 0;
+}
+
+.addressHeading {
+  grid-column: 2 / 3;
+  align-self: start;
+  justify-self: end;
+  text-align: right;
+  font-weight: bold;
+  line-height: 0.5em;
+  margin: 0;
+  padding: 20px 0px 0px 20px;
+}
+
+.address-form {
+  margin: 10px;
+}
+
+form {
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  width: 385px;
+}
+
+label {
+  grid-column: 1 / 2;
+  padding: 5px 5px 5px 0px;
+  margin: 5px 5px 5px 0px;
+}
+
+button {
+  font-family: inherit;
+  padding: 8px;
+  margin: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+button:hover {
+  color: white;
+  background: #fe8a71;
+  box-shadow: 2px 2px 3px 0px black;
+  transition: all 0.2s ease 0s;
+}
+
+.input-container {
+  margin-left: 10px;
+}
+
+.input-currency {
+  grid-column: 2 / 3;
+  padding-left: 6px;
+  margin: 5px;
+  border: 2px solid #00a3dd;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  height: 35px;
+}
+
+.input-currency > input {
+  padding: 8px;
+  margin-left: 6px;
+  border: none;
+  border-radius: 0px 3px 3px 0px;
+  width: 110px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+.input-interest {
+  grid-column: 2 / 3;
+  padding-right: 6px;
+  margin: 5px;
+  border: 2px solid #00a3dd;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  height: 35px;
+}
+
+.input-interest > input {
+  padding: 8px;
+  margin-right: 7px;
+  border: none;
+  border-radius: 3px 0px 0px 3px;
+  width: 105px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+.input-years {
+  grid-column: 2 / 3;
+  padding-right: 6px;
+  margin: 5px;
+  border: 2px solid #00a3dd;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  height: 35px;
+}
+
+.input-years > input {
+  padding: 8px;
+  margin-right: 7px;
+  border: none;
+  border-radius: 3px 0px 0px 3px;
+  width: 75px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  outline: none;
+}
+
+hr {
+  grid-column: 1 / 3;
+  height: 1px;
+  border: 0;
+  border-bottom: 5px solid #f6cd61;
+  margin: 1em 0;
+  padding-bottom: 0;
+}
+
+.address-input {
+  grid-column: 2 / 3;
+  width: 250px;
+  padding: 8px;
+  margin: 5px;
+  border: 2px solid #00a3dd;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.input-address-large {
+  grid-column: 2 / 3;
+  width: 250px;
+  padding: 8px;
+  margin: 5px;
+  border: 2px solid #00a3dd;
+  border-radius: 5px;
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+}
+
+.mortgage-info {
+  width: 780px;
+  border: 2px solid #00a3dd;
+  border-radius: 5px;
+  background-color: white;
+  color: black;
+  margin: 10px;
+  padding-left: 20px;
+  padding-bottom: 15px;
+  display: grid;
+  grid-template-columns: 300px 1fr;
+}
+
+.mortgage-info > label {
+  grid-column: 1 / 2;
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.tab {
+  grid-column: 2 / 3;
+  padding: 5px;
+  margin: 5px;
+  font-weight: bold;
+}
+
+.input-tab {
+  grid-column: 2 / 3;
+  padding: 5px;
+  margin: 5px;
+  font-weight: bold;
+  text-align: right;
+}
+
+input:disabled {
+  background: lightgrey;
+  color: lightgrey;
+}
+
+svg {
+  border: 2px solid #00a3dd;
+  border-radius: 5px;
+  background-color: white;
+}
+
+.bold-label {
+  font-weight: bold;
+}
+
+.tooltip {
+  background-color: #000;
+  border-radius: 5px;
+  display: none;
+  color: white;
+  box-shadow: 4px 4px 6px rgba(0, 0, 0, 0.4);
+  position: absolute;
+  z-index: 100;
+  text-align: center;
+  opacity: 0.7;
+}
+
+.tooltip.show {
+  display: block;
+}
+
+.tooltip p {
+  margin: 5px;
+}
+
+rect:hover {
+  fill: grey;
+  /* transition: all 0.1s ease 0s; */
+}
+
+circle:hover {
+  stroke: black;
+  stroke-width: 1px;
+  fill: grey;
+}
+
+.graph-heading {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+.rectCapital {
+  fill: #3da4ab;
+}
+
+.rectInterest {
+  fill: #f6cd61;
+}
+
+.path,
+.dot {
+  stroke: #fe8a71;
+}
+
+ul {
+  list-style-type: none;
+  margin: 10px;
+  margin-bottom: 20px;
+}
+
+ul > h3 {
+  color: black;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+table {
+  margin: auto;
+}
+
+.tableStyle {
+  width: 600px;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.tableBorder {
+  border: 2px solid #00a3dd;
+  border-radius: 5px;
+  width: 760px;
+  background: white;
+  padding: 20px;
+  padding-bottom: 50px;
+}
+
+.cellStyle {
+  text-align: left;
+  border: 1px solid black;
+  background: white;
+  color: black;
+  width: 100px;
+  padding: 0.1rem;
+  overflow: hidden;
+}
+
+.smallCellStyle {
+  text-align: center;
+  border: 1px solid black;
+  background: white;
+  color: black;
+  width: 80px;
+  padding: 0.1rem;
+  overflow: hidden;
+}
+
+.interestHeading {
+  background: #f6cd61;
+}
+
+.principalHeading {
+  background: #3da4ab;
+}
+
+.outstandingHeading {
+  background: #fe8a71;
+}
