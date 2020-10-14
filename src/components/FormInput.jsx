@@ -93,9 +93,8 @@ const FormInput = (props) => {
         <span className="input-tab">
           £{" "}
           {calculateMonthlyPayment(
-            //should change to lower fixed monthly payment, if selected.
             props.price - props.deposit,
-            props.rate,
+            props.isFixedRate ? props.fixedRate : props.rate, //rate depends of whether fixed rate is chose or not
             props.periodInYears
           )}
         </span>

@@ -6,7 +6,7 @@ function loanAmount(price, deposit) {
 function calculateMonthlyPayment(loan, rate, period) {
   let i = rate / 100 / 12;
   let n = period * 12;
-  let pmt = (loan * i) / (1 - Math.pow(1 + i, -n)); //!!!!if rate is 0%, result in 'division by 0' here
+  let pmt = i !== 0 ? (loan * i) / (1 - Math.pow(1 + i, -n)) : loan / n;
   return (Math.round(pmt * 100) / 100).toFixed(2);
 }
 
