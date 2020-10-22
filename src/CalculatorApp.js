@@ -1,10 +1,8 @@
 import React from "react";
 import "./CalculatorApp.css";
-import AppName from "./components/AppName";
 import FormInput from "./components/FormInput";
 import Address from "./components/Address";
 import FormDisplay from "./components/FormDisplay";
-import AddressDisplay from "./components/AddressDisplay";
 import {
   createStandardPaymentArray,
   createFixedPaymentArray,
@@ -183,18 +181,7 @@ class CalculatorApp extends React.Component {
   render() {
     return (
       <div className="container">
-        <div className="heading-container">
-          <AppName />
-          {(this.state.isInputVisible || this.state.isDisplayVisible) && (
-            <AddressDisplay
-              buildingName={this.state.buildingName}
-              streetNumber={this.state.streetNumber}
-              streetAddress={this.state.streetAddress}
-              city={this.state.city}
-              postalCode={this.state.postalCode}
-            />
-          )}
-        </div>
+        <h1 className="header">Mortgage Calculator</h1>
 
         {this.state.isAddressInputVisible && (
           <Address
@@ -209,10 +196,9 @@ class CalculatorApp extends React.Component {
           />
         )}
         {this.state.isAddressInputVisible && (
-          <button onClick={this.handleAddressInputVisibility}>Next</button>
-        )}
-        {this.state.isInputVisible && (
-          <button onClick={this.handleBackAddressButton}>Back</button>
+          <div className="buttonContainer">
+            <button onClick={this.handleAddressInputVisibility}>Next</button>
+          </div>
         )}
         {this.state.isInputVisible && (
           <FormInput
@@ -230,26 +216,36 @@ class CalculatorApp extends React.Component {
           />
         )}
         {this.state.isInputVisible && (
-          <button
-            onClick={
-              this.state.isFixedRate
-                ? this.handleFixedPaymentSchedule
-                : this.handlePaymentSchedule
-            }
-          >
-            Payment Schedule &#8594;
-          </button>
+          <div className="buttonContainer">
+            <button onClick={this.handleBackAddressButton}>Back</button>
+            <button
+              onClick={
+                this.state.isFixedRate
+                  ? this.handleFixedPaymentSchedule
+                  : this.handlePaymentSchedule
+              }
+            >
+              Payment Schedule &#8594;
+            </button>
+          </div>
         )}
-        {this.state.isDisplayVisible && (
-          <button onClick={this.handleDisplayVisibility}>Back</button>
-        )}
-        {this.state.isDisplayVisible && (
-          <button onClick={this.handleEditAddressVisibility}>
-            Edit Address
-          </button>
-        )}
+        <div className="buttonContainer">
+          {this.state.isDisplayVisible && (
+            <button onClick={this.handleDisplayVisibility}>Back</button>
+          )}
+          {this.state.isDisplayVisible && (
+            <button onClick={this.handleEditAddressVisibility}>
+              Edit Address
+            </button>
+          )}
+        </div>
         {this.state.isDisplayVisible && (
           <FormDisplay
+            buildingName={this.state.buildingName}
+            streetNumber={this.state.streetNumber}
+            streetAddress={this.state.streetAddress}
+            city={this.state.city}
+            postalCode={this.state.postalCode}
             price={this.state.price}
             deposit={this.state.deposit}
             rate={this.state.rate}

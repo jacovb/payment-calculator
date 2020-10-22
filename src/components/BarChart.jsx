@@ -52,7 +52,6 @@ class BarChart extends Component {
       .append("svg")
       .attr("width", w)
       .attr("height", h)
-      .style("margin", 10)
       .style("color", "black");
 
     accessToRef //capital portion

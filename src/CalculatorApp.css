@@ -4,28 +4,18 @@ body {
   background: #005472;
   color: white;
   font-family: "Montserrat", sans-serif;
-
-  margin-left: 10px;
 }
 
 .container {
-  margin: 0;
+  margin: auto;
   padding: 0;
-}
-
-.heading-container {
-  width: 800px;
-  display: grid;
-  grid-template-columns: 400px 1fr;
-  grid-template-rows: auto;
-  margin: 10px;
 }
 
 .header {
-  grid-column: 1 / 2;
-  align-self: start;
-  margin: 0;
-  padding: 0;
+  display: inline-block;
+  font-size: 2em;
+  font-weight: bold;
+  margin: 10px auto 10px auto;
 }
 
 .addressHeading {
@@ -36,7 +26,6 @@ body {
   font-weight: bold;
   line-height: 0.5em;
   margin: 0;
-  padding: 20px 0px 0px 20px;
 }
 
 .address-form {
@@ -47,6 +36,7 @@ form {
   display: grid;
   grid-template-columns: 220px 1fr;
   width: 385px;
+  margin: auto;
 }
 
 label {
@@ -55,10 +45,15 @@ label {
   margin: 5px 5px 5px 0px;
 }
 
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
 button {
   font-family: inherit;
   padding: 8px;
-  margin: 10px;
   border: 1px solid black;
   border-radius: 5px;
 }
@@ -177,7 +172,8 @@ hr {
   border-radius: 5px;
   background-color: white;
   color: black;
-  margin: 10px;
+  margin: auto;
+  margin-top: 15px;
   padding-left: 20px;
   padding-bottom: 15px;
   display: grid;
@@ -214,6 +210,9 @@ svg {
   border: 2px solid #00a3dd;
   border-radius: 5px;
   background-color: white;
+  display: block;
+  margin: auto;
+  margin-top: 10px;
 }
 
 .bold-label {
@@ -271,7 +270,8 @@ circle:hover {
 
 ul {
   list-style-type: none;
-  margin: 10px;
+  margin: auto;
+  margin-top: 10px;
   margin-bottom: 20px;
 }
 

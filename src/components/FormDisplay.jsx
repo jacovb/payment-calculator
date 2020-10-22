@@ -1,5 +1,6 @@
 import React from "react";
 import BarChart from "./BarChart";
+import AddressDisplay from "./AddressDisplay";
 
 const FormDisplay = (props) => {
   return (
@@ -17,6 +18,13 @@ const FormDisplay = (props) => {
         <label>Mortgage Term:</label>
         <span className="tab">{props.periodInYears} Years</span>
       </div>
+      <AddressDisplay
+        buildingName={props.buildingName}
+        streetNumber={props.streetNumber}
+        streetAddress={props.streetAddress}
+        city={props.city}
+        postalCode={props.postalCode}
+      />
       <BarChart
         data1={props.totalAnnualPayments}
         data2={props.paymentSchedule}
