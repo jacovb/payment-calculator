@@ -1,5 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+}
+
 body {
   background: #005472;
   color: white;
@@ -12,10 +17,10 @@ body {
 }
 
 .header {
-  display: inline-block;
-  font-size: 2em;
-  font-weight: bold;
-  margin: 10px auto 10px auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 15px auto 15px auto;
 }
 
 .addressHeading {
