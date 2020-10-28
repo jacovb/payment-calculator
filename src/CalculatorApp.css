@@ -23,20 +23,6 @@ body {
   margin: 15px auto 15px auto;
 }
 
-.addressHeading {
-  grid-column: 2 / 3;
-  align-self: start;
-  justify-self: end;
-  text-align: right;
-  font-weight: bold;
-  line-height: 0.5em;
-  margin: 0;
-}
-
-.address-form {
-  margin: 10px;
-}
-
 form {
   display: grid;
   grid-template-columns: 220px 1fr;
@@ -68,10 +54,6 @@ button:hover {
   background: #fe8a71;
   box-shadow: 2px 2px 3px 0px black;
   transition: all 0.2s ease 0s;
-}
-
-.input-container {
-  margin-left: 10px;
 }
 
 .input-currency {
@@ -149,9 +131,9 @@ hr {
   padding-bottom: 0;
 }
 
-.address-input {
+.input-address {
   grid-column: 2 / 3;
-  width: 250px;
+  width: 100%;
   padding: 8px;
   margin: 5px;
   border: 2px solid #00a3dd;
@@ -160,19 +142,8 @@ hr {
   font-size: 15px;
 }
 
-.input-address-large {
-  grid-column: 2 / 3;
-  width: 250px;
-  padding: 8px;
-  margin: 5px;
-  border: 2px solid #00a3dd;
-  border-radius: 5px;
-  font-family: "Montserrat", sans-serif;
-  font-size: 15px;
-}
-
-.mortgage-info {
-  width: 780px;
+.info-container {
+  width: 760px;
   border: 2px solid #00a3dd;
   border-radius: 5px;
   background-color: white;
@@ -180,9 +151,24 @@ hr {
   margin: auto;
   margin-top: 15px;
   padding-left: 20px;
+  padding-right: 20px;
   padding-bottom: 15px;
+  padding-top: 10px;
   display: grid;
-  grid-template-columns: 300px 1fr;
+  grid-template-columns: 400px 360px;
+}
+
+.mortgage-info {
+  width: 400px;
+  margin: auto;
+  display: grid;
+  grid-template-columns: 250px 150px;
+  border-right: 1px solid black;
+}
+
+.mortgage-info > h3 {
+  padding: 5px 5px 5px 0px;
+  margin: 5px 5px 5px 0px;
 }
 
 .mortgage-info > label {
@@ -198,12 +184,32 @@ hr {
   font-weight: bold;
 }
 
+.addressHeading {
+  grid-column: 2 / 3;
+  align-self: start;
+  justify-self: start;
+  text-align: left;
+  margin-left: 20px;
+  color: black;
+}
+
+.addressHeading > h3 {
+  padding: 5px 5px 5px 0px;
+  margin: 5px 5px 5px 0px;
+  font-weight: bold;
+}
+
+.addressHeading > div > p {
+  line-height: 2em;
+}
+
 .input-tab {
   grid-column: 2 / 3;
   padding: 5px;
   margin: 5px;
   font-weight: bold;
   text-align: right;
+  transition: all 1s ease 0s;
 }
 
 input:disabled {
@@ -246,7 +252,7 @@ svg {
 
 rect:hover {
   fill: grey;
-  /* transition: all 0.1s ease 0s; */
+  transition: all 0.1s ease 0s;
 }
 
 circle:hover {
@@ -335,4 +341,38 @@ table {
 
 .outstandingHeading {
   background: #fe8a71;
+}
+
+.radioButton {
+  grid-column: 1 / 3;
+  margin: auto;
+}
+
+.radioButton input[type="radio"] {
+  opacity: 0;
+  position: fixed;
+  width: 0;
+}
+
+.radioButton label {
+  display: inline-block;
+  background-color: white;
+  padding: 10px;
+  font-family: inherit;
+  color: black;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 0px 2px 0px 2px;
+}
+
+.radioButton input[type="radio"]:checked + label {
+  background: #fe8a71;
+  border-color: black;
+}
+
+.radioButton label:hover {
+  color: white;
+  background: #fe8a71;
+  box-shadow: 2px 2px 3px 0px black;
+  transition: all 0.2s ease 0s;
 }

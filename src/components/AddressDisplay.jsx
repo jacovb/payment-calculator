@@ -2,7 +2,7 @@ import React from "react";
 
 const AddressDisplay = (props) => {
   return (
-    <div className="addressHeading">
+    <div>
       <p>{props.buildingName}</p>
       <p>
         {props.streetNumber} {props.streetAddress}

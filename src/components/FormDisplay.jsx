@@ -5,26 +5,31 @@ import AddressDisplay from "./AddressDisplay";
 const FormDisplay = (props) => {
   return (
     <div>
-      <div className="mortgage-info">
-        <h3>Mortgage Information</h3>
-        <label>Property Purchase Price:</label>
-        <span className="tab">£ {props.price}</span>
-        <label>Deposit:</label>
-        <span className="tab">£ {props.deposit}</span>
-        <label>Loan Amount:</label>
-        <span className="tab">£ {props.price - props.deposit}</span>
-        <label>Interest Rate:</label>
-        <span className="tab">{props.rate} %</span>
-        <label>Mortgage Term:</label>
-        <span className="tab">{props.periodInYears} Years</span>
-      </div>
-      <AddressDisplay
-        buildingName={props.buildingName}
-        streetNumber={props.streetNumber}
-        streetAddress={props.streetAddress}
-        city={props.city}
-        postalCode={props.postalCode}
-      />
+      <div className="info-container">
+        <div className="mortgage-info">
+          <h3>Mortgage Information</h3>
+          <label>Property Purchase Price:</label>
+          <span className="tab">£ {props.price}</span>
+          <label>Deposit:</label>
+          <span className="tab">£ {props.deposit}</span>
+          <label>Loan Amount:</label>
+          <span className="tab">£ {props.price - props.deposit}</span>
+          <label>Interest Rate:</label>
+          <span className="tab">{props.rate} %</span>
+          <label>Mortgage Term:</label>
+          <span className="tab">{props.periodInYears} Years</span>
+        </div>
+        <div className="addressHeading">
+          <h3>Property Address:</h3>
+          <AddressDisplay
+            buildingName={props.buildingName}
+            streetNumber={props.streetNumber}
+            streetAddress={props.streetAddress}
+            city={props.city}
+            postalCode={props.postalCode}
+            />
+        </div> 
+      </div> 
       <BarChart
         data1={props.totalAnnualPayments}
         data2={props.paymentSchedule}

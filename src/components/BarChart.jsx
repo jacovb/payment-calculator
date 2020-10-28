@@ -21,7 +21,8 @@ class BarChart extends Component {
       widthPadding,
       time,
     } = this.props;
-    console.log("Data", data1);
+    console.log("Data1", data1);
+    console.log("Data2", data2);
 
     const tooltip = document.getElementById("tooltip");
 
@@ -134,7 +135,7 @@ class BarChart extends Component {
       .selectAll("circle")
       .data(data2)
       .enter()
-      .filter((d, i) => i % 12 === 0)
+      .filter((d, i) => (i) % 12 === 0)
       .append("circle")
       .attr("class", "dot")
       .attr("data-xvalue", (d) => d[1])
@@ -147,15 +148,15 @@ class BarChart extends Component {
       .on("mouseover", (d, i) => {
         tooltip.classList.add("show");
         tooltip.style.left = `${d3.event.pageX + 10}px`;
-        tooltip.style.top = `${d3.event.pageY - 70}px`; //this position is still not correct
-        tooltip.innerHTML = `<p>Year ${i + 1}</p>
+        tooltip.style.top = `${d3.event.pageY - 70}px`;
+        tooltip.innerHTML = `<p>Year ${i}</p>
           <p>Loan Outstanding £ ${d.loanOutstanding.toFixed(2)}</p>`;
       })
       .on("mousemove", (d, i) => {
         tooltip.style.left = `${d3.event.pageX + 10}px`;
         tooltip.style.top = `${d3.event.pageY - 70}px`;
         tooltip.innerHTML = `
-          <p>Year ${i + 1}</p>
+          <p>Year ${i}</p>
           <p>Loan Outstanding £ ${d.loanOutstanding.toFixed(2)}</p>
       `;
       })
@@ -168,7 +169,7 @@ class BarChart extends Component {
     const yAxisLeft = d3.axisLeft(yScale1);
     const yAxisRight = d3.axisRight(yScale2);
 
-    accessToRef
+    accessToRef //x-axis ticks
       .append("g")
       .attr("id", "x-axis")
       .attr("transform", `translate(0, ${h - heightPadding})`)
@@ -189,14 +190,14 @@ class BarChart extends Component {
     accessToRef //add axis labels
       .append("text")
       .attr("class", "bold-label")
-      .attr("transform", `translate(${w / 2}, ${h - 20})`)
+      .attr("transform", `translate(${w/2}, ${h - 20})`)
       .style("text-anchor", "middle")
       .text("Years");
 
     accessToRef
       .append("text")
       .attr("class", "graph-heading")
-      .attr("transform", `translate(${w / 2}, ${45})`)
+      .attr("transform", `translate(${w/2}, ${45})`)
       .style("text-anchor", "middle")
       .text("Amortization Schedule");
 

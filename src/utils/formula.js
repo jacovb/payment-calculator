@@ -30,6 +30,14 @@ function calculateOutstandingAmount(loan, capital) {
 function createStandardPaymentArray(price, deposit, rate, periodInYears) {
   let newArray = [];
   let loan = loanAmount(price, deposit);
+  //add loan amount to payment array before rest of payments are added
+  newArray.push({
+    paymentNumber: 0,
+    paymentAmount: 0,
+    interest: 0,
+    principal: 0,
+    loanOutstanding: parseFloat(loan),
+  });
   let outstandingAmount = loan;
   for (let i = 1; i <= periodInYears * 12; i++) {
     // eslint-disable-next-line
@@ -70,6 +78,14 @@ function createFixedPaymentArray(
 ) {
   let newArray = [];
   let loan = loanAmount(price, deposit);
+  //add loan amount to payment array before rest of payments are added
+  newArray.push({
+    paymentNumber: 0,
+    paymentAmount: 0,
+    interest: 0,
+    principal: 0,
+    loanOutstanding: parseFloat(loan),
+  });
   let outstandingAmount = loan;
   for (let i = 1; i <= fixedPeriod * 12; i++) {
     // eslint-disable-next-line
@@ -136,7 +152,7 @@ function createFixedPaymentArray(
 
 function annualPaymentArr(paymentArray, period) {
   let annualPayments = [];
-  for (let i = 0; i < period * 12; i += 12) {
+  for (let i = 1; i < period * 12; i += 12) {
     annualPayments.push([
       parseFloat(
         paymentArray
