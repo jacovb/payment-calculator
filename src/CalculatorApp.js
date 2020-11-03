@@ -44,7 +44,6 @@ class CalculatorApp extends React.Component {
     this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
     this.handleLoadPage1 = this.handleLoadPage1.bind(this);
     this.handleLoadPage2 = this.handleLoadPage2.bind(this);
-    this.handleLoadPage3 = this.handleLoadPage3.bind(this);
   }
 
   handleChange(e) {
@@ -117,14 +116,6 @@ class CalculatorApp extends React.Component {
       isPage1Visible: false,
       isPage2Visible: true,
       isPage3Visible: false,
-    });
-  }
-
-  handleLoadPage3() {
-    this.setState({
-      isPage1Visible: false,
-      isPage2Visible: false,
-      isPage3Visible: true,
     });
   }
 
