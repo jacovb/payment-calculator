@@ -376,3 +376,73 @@ table {
   box-shadow: 2px 2px 3px 0px black;
   transition: all 0.2s ease 0s;
 }
+
+.stepProgress {
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin: 20px auto 20px auto;
+}
+
+.step {
+  width: 20px;
+  height: 20px;
+  background-color: white;
+  color: black;
+  border: 2px solid #00a3dd;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 12px;
+  margin: 0px 10px 0px 10px;
+  transition: all 0.5s ease-in-out 0s;
+  z-index: 2;
+}
+
+.step:hover {
+  box-shadow: 2px 2px 3px 0px black;
+  transform: scale(1.2);
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.step.complete {
+  color: white;
+  border: 2px solid white;
+  background-color: #fe8a71;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.stepBarOutline {
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+  height: 4px;
+  width: 90px;
+  border: 1px solid white;
+  margin-top: 9px;
+  z-index: 1;
+}
+
+.stepBar {
+  position: absolute;
+  height: 4px;
+  width: 0px;
+  margin-top: 0px;
+  align-items: left;
+  z-index: 1;
+  background: #fe8a71;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.stepBar.stepHalf {
+  width: 45px;
+  transition: all 0.5s ease-in-out 0s;
+}
+
+.stepBar.stepFull {
+  width: 90px;
+  transition: all 0.5s ease-in-out 0s;
+}

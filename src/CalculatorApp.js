@@ -8,6 +8,7 @@ import {
   createFixedPaymentArray,
   annualPaymentArr,
 } from "./utils/formula";
+import StepProgress from "./components/StepProgress";
 
 class CalculatorApp extends React.Component {
   constructor(props) {
@@ -27,9 +28,9 @@ class CalculatorApp extends React.Component {
       periodInYears: 25,
       fixedPeriod: 2,
       totalAnnualPayments: null,
-      isAddressInputVisible: true,
-      isInputVisible: false,
-      isDisplayVisible: false,
+      isPage1Visible: true,
+      isPage2Visible: false,
+      isPage3Visible: false,
       paymentSchedule: [],
     };
 
@@ -40,16 +41,10 @@ class CalculatorApp extends React.Component {
     this.handleFixedPaymentSchedule = this.handleFixedPaymentSchedule.bind(
       this
     );
-    this.handleAddressInputVisibility = this.handleAddressInputVisibility.bind(
-      this
-    );
-    this.handleInputVisibility = this.handleInputVisibility.bind(this);
-    this.handleDisplayVisibility = this.handleDisplayVisibility.bind(this);
-    this.handleBackAddressButton = this.handleBackAddressButton.bind(this);
-    this.handleEditAddressVisibility = this.handleEditAddressVisibility.bind(
-      this
-    );
     this.handlePlaceSelect = this.handlePlaceSelect.bind(this);
+    this.handleLoadPage1 = this.handleLoadPage1.bind(this);
+    this.handleLoadPage2 = this.handleLoadPage2.bind(this);
+    this.handleLoadPage3 = this.handleLoadPage3.bind(this);
   }
 
   handleChange(e) {
@@ -77,8 +72,9 @@ class CalculatorApp extends React.Component {
     this.setState({
       paymentSchedule: paymentArray,
       totalAnnualPayments: annualPayments,
-      isInputVisible: !this.state.isInputVisible,
-      isDisplayVisible: !this.state.isDisplayVisible,
+      isPage1Visible: false,
+      isPage2Visible: false,
+      isPage3Visible: true,
     });
     console.log(paymentArray);
   }
@@ -101,43 +97,34 @@ class CalculatorApp extends React.Component {
     this.setState({
       paymentSchedule: paymentArray,
       totalAnnualPayments: annualPayments,
-      isInputVisible: !this.state.isInputVisible,
-      isDisplayVisible: !this.state.isDisplayVisible,
+      isPage1Visible: false,
+      isPage2Visible: false,
+      isPage3Visible: true,
     });
     console.log(paymentArray);
   }
 
-  handleAddressInputVisibility() {
+  handleLoadPage1() {
     this.setState({
-      isAddressInputVisible: !this.state.isAddressInputVisible,
-      isInputVisible: !this.state.isInputVisible,
+      isPage1Visible: true,
+      isPage2Visible: false,
+      isPage3Visible: false,
     });
   }
 
-  handleInputVisibility() {
+  handleLoadPage2() {
     this.setState({
-      isInputVisible: !this.state.isInputVisible,
+      isPage1Visible: false,
+      isPage2Visible: true,
+      isPage3Visible: false,
     });
   }
 
-  handleDisplayVisibility() {
+  handleLoadPage3() {
     this.setState({
-      isDisplayVisible: !this.state.isDisplayVisible,
-      isInputVisible: !this.state.isInputVisible,
-    });
-  }
-
-  handleBackAddressButton() {
-    this.setState({
-      isAddressInputVisible: !this.state.isAddressInputVisible,
-      isInputVisible: !this.state.isInputVisible,
-    });
-  }
-
-  handleEditAddressVisibility() {
-    this.setState({
-      isDisplayVisible: !this.state.isDisplayVisible,
-      isAddressInputVisible: !this.state.isAddressInputVisible,
+      isPage1Visible: false,
+      isPage2Visible: false,
+      isPage3Visible: true,
     });
   }
 
@@ -182,8 +169,17 @@ class CalculatorApp extends React.Component {
     return (
       <div className="container">
         <h1 className="header">Mortgage Calculator</h1>
-
-        {this.state.isAddressInputVisible && (
+        <StepProgress
+          isPage1Visible={this.state.isPage1Visible}
+          isPage2Visible={this.state.isPage2Visible}
+          isPage3Visible={this.state.isPage3Visible}
+          handleLoadPage1={this.handleLoadPage1}
+          handleLoadPage2={this.handleLoadPage2}
+          handlePaymentSchedule={this.handlePaymentSchedule}
+          handleFixedPaymentSchedule={this.handleFixedPaymentSchedule}
+          isFixedRate={this.state.isFixedRate}
+        />
+        {this.state.isPage1Visible && (
           <Address
             // handleSubmit={this.handleSubmit}
             handlePlaceSelect={this.handlePlaceSelect}
@@ -195,12 +191,12 @@ class CalculatorApp extends React.Component {
             postalCode={this.state.postalCode}
           />
         )}
-        {this.state.isAddressInputVisible && (
+        {this.state.isPage1Visible && (
           <div className="buttonContainer">
-            <button onClick={this.handleAddressInputVisibility}>Next</button>
+            <button onClick={this.handleLoadPage2}>Next</button>
           </div>
         )}
-        {this.state.isInputVisible && (
+        {this.state.isPage2Visible && (
           <FormInput
             price={this.state.price}
             deposit={this.state.deposit}
@@ -211,13 +207,11 @@ class CalculatorApp extends React.Component {
             isFixedRate={this.state.isFixedRate}
             handleChange={this.handleChange}
             handleRadio={this.handleRadio}
-            handlePaymentSchedule={this.state.handlePaymentSchedule}
-            handleBackAddressButton={this.handleBackAddressButton}
           />
         )}
-        {this.state.isInputVisible && (
+        {this.state.isPage2Visible && (
           <div className="buttonContainer">
-            <button onClick={this.handleBackAddressButton}>Back</button>
+            <button onClick={this.handleLoadPage1}>Back</button>
             <button
               onClick={
                 this.state.isFixedRate
@@ -230,16 +224,14 @@ class CalculatorApp extends React.Component {
           </div>
         )}
         <div className="buttonContainer">
-          {this.state.isDisplayVisible && (
-            <button onClick={this.handleDisplayVisibility}>Back</button>
+          {this.state.isPage3Visible && (
+            <button onClick={this.handleLoadPage2}>Back</button>
           )}
-          {this.state.isDisplayVisible && (
-            <button onClick={this.handleEditAddressVisibility}>
-              Edit Address
-            </button>
+          {this.state.isPage3Visible && (
+            <button onClick={this.handleLoadPage1}>Edit Address</button>
           )}
         </div>
-        {this.state.isDisplayVisible && (
+        {this.state.isPage3Visible && (
           <FormDisplay
             buildingName={this.state.buildingName}
             streetNumber={this.state.streetNumber}
@@ -263,8 +255,4 @@ class CalculatorApp extends React.Component {
 
 export default CalculatorApp;
 
-// 5. Add comments to explain whats happening where (thank me later)
 // 7. Add Overpayments
-
-//BUGS to FIX:
-// - 0% interest doesn't work -> outputs 'NaN'
