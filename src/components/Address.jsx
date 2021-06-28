@@ -1,10 +1,10 @@
 import React from "react";
-import Autocomplete from "react-google-autocomplete";
+// import Autocomplete from "react-google-autocomplete";
 
 const Address = (props) => {
   return (
     <form>
-      <label>Property Address: </label>
+      {/* <label>Property Address: </label>
       <Autocomplete
         className="input-address"
         placeholder="Enter an Address..."
@@ -14,7 +14,7 @@ const Address = (props) => {
         }}
         types={["address"]}
         componentRestrictions={{ country: "gb" }}
-      />
+      /> */}
 
       <label>Flat Number / Building Name:</label>
       <input
